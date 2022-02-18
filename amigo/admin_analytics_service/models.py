@@ -29,14 +29,16 @@ class Delivery_Company(models.Model):
 
 class Order(models.Model):
 
-    client = models.ForeignKey(User, on_delete=models.CASCADE)
-    weightKG = models.FloatField()
-    expectingPriceTenge = models.FloatField()
-    expectingDeliveryDate = models.DateTimeField()
-    date = models.DateTimeField()
-    FromLocation = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='from_location_order')
-    ToLocation = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='to_location_order')
-    type = models.CharField(max_length=255, choices=ORDER_STATUS_CHOICES)
+    client = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
+    weightKG = models.FloatField(null=True, blank=True)
+    expectingPriceTenge = models.FloatField(null=True, blank=True)
+    expectingDeliveryDate = models.DateTimeField(null=True, blank=True)
+    date = models.DateTimeField(null=True, blank=True, auto_now=True)
+    FromLocation = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='from_location_order', null=True, blank=True)
+    ToLocation = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='to_location_order', null=True, blank=True)
+    type = models.CharField(max_length=255, choices=ORDER_STATUS_CHOICES, null=True, blank=True)
+    fail_reason = models.IntegerField(null=True, blank=True)
+    cancel_reason = models.IntegerField(null=True, blank=True)
 
 class Offer(models.Model):
 
@@ -53,3 +55,4 @@ class UserProfile(models.Model):
     )
 
     user_type = models.CharField(max_length=255, choices=USER_TYPE_CHOICES)
+    user = models.OneToOneField(User, related_name='userprofile', on_delete=models.CASCADE, blank=True, null=True)

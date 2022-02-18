@@ -7,3 +7,6 @@ hack_files/events.json
 hack_files/clients.json
 hack_files/deliveryCompanies.json
 hack_files/locations.json
+amigo/amigo/__pycache__/__init__.cpython-310.pyc
+amigo/amigo/__pycache__/__init__.cpython-39.pyc
+amigo/amigo/__pycache__/settings.cpython-310.pyc

@@ -20,4 +20,4 @@ def get_name(request):
     else:
         form = ClientForm()
 
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'index_main.html', {'form': form})

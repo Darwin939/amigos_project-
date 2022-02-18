@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>Order List</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">client</th>
+                <th scope="col">weight</th>
+                <th scope="col">expectingPriceTenge</th>
+                <th scope="col">expectingDeliveryDate</th>
+                <th scope="col">date</th>
+                <th scope="col">FromLocation</th>
+                <th scope="col">ToLocation</th>
+                <th scope="col">type/Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in object_list %}
+            <tr>
+                <td>{{ order.client.name }}</td>
+                <td>{{order.weightKG}}</td>
+                <td>{{order.expectingPriceTenge}}</td>
+                <td>{{order.expectingDeliveryDate}}</td>
+                <td>{{order.date}}</td>
+                <td>{{order.FromLocation}}</td>
+                <td>{{order.ToLocation}}</td>
+                <td>{{order.type}}</td>
+                <td><a type="button" class="btn btn-warning" href="/book-update/{{ order.id }}">Update</a>
+                    <a type="button" class="btn btn-danger" href="/book-delete/{{ order.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="{%url 'admin_analytics_service:ordercreate' %}">Create</a>
+</div>
+{% endblock %}

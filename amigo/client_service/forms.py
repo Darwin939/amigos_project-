@@ -6,4 +6,5 @@ class ClientForm(forms.Form):
     weightKG = forms.FloatField(label='Weight' , required=False)
     expectingPriceTenge = forms.FloatField(label='PriceTenge', required=False)
     expectingDeliveryDate = forms.DateTimeField(label='DeliveryDate', required=False)
-    ToLocation = forms.MultipleChoiceField(choices=Location.objects.all(), label="(Nothing)")
+    FromLocation = forms.MultipleChoiceField(choices=Location.objects.values_list('name'), label="FromLocation")
+    ToLocation = forms.MultipleChoiceField(choices=Location.objects.values_list('name'), label="ToLocation")

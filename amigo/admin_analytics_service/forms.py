@@ -52,7 +52,7 @@ class OrderCreateForm(ModelForm):
 
         # self.request = kwargs.pop("request")
         c = self.get_context()
-        print(c)
+
         order.client = self.request.user
         if commit:
             order.save()

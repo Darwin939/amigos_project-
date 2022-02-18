@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'amigo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'wzxemwkh',
-        'USER': 'wzxemwkh',
-        'PASSWORD': 'T8OxWG9W4S3deAfExxvOxTSPWnOYV-oq',
-        'HOST': 'surus.db.elephantsql.com',
+        'NAME': 'imsqgyij',
+        'USER': 'imsqgyij',
+        'PASSWORD': 'ItFZzFuRwtYT3-4l7iQTcAQB0-_ldFpr',
+        'HOST': 'abul.db.elephantsql.com',
         'PORT': '5432',
     }
 }

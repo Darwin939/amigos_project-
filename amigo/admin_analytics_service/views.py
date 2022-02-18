@@ -49,7 +49,7 @@ class OrderCreate(CreateView):
 	model = Order
 	template_name = 'ordercreate.html'
 	form_class = OrderCreateForm
-	success_url = '/'
+	success_url = '/order-list'
 
 	def get_form_kwargs(self, *args, **kwargs):
 		kwargs = super().get_form_kwargs(*args, **kwargs)

@@ -1,30 +1,123 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-          crossorigin="anonymous">
-
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <title>Title</title>
+    <style type="text/css">
+        .navbar-custom {
+            padding: 0 24px;
+            background-color: black;
+            box-shadow: 0px 0px 35px 0px rgb(154 161 171 / 15%);
+            min-height: 70px;
+            position: fixed;
+            left: 0px;
+            top: 0;
+            right: 0;
+            z-index: 1001;
+        }
+        
+        div {
+            display: block;
+        }
+        
+        body {
+            margin: 0;
+            font-family: "MuseoSansCyrl", sans-serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #6c757d;
+            text-align: left;
+            background-color: #fafbfe;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+            -webkit-text-size-adjust: 100%;
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        }
+        
+        .logo {
+            max-width: 260px;
+            max-height: 60px;
+        }
+        
+        .list {
+            float: right;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .mb-0 {
+            margin-bottom: 0 !important;
+        }
+        
+        .nav-link {
+            font-size: large;
+            min-width: 32px;
+            display: block;
+            text-align: center;
+            margin: 0 0px;
+            position: relative;
+        }
+        
+        .topbar-dropdown {
+            line-height: 70px;
+        }
+        
+        a {
+            color: #ffffff;
+            /* Цвет обычной ссылки */
+            text-decoration: none;
+            /* Убираем подчеркивание у ссылок */
+        }
+        
+        a:visited {
+            color: #e90740;
+            /* Цвет посещённой ссылки */
+        }
+        
+        a:hover {
+            color: #b80a7e;
+            /* Цвет ссылки при наведении на нее курсора мыши */
+            text-decoration: underline;
+            /* Добавляем подчеркивание */
+        }
+    </style>
 </head>
-<body>
-{% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li
-    {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-{% block content %}
 
-{% endblock %}
+<body>
+    <div class="navbar-custom">
+        <a href="https://e-agrin.com/ru/"><img src="https://e-agrin.com/images/logo-white.svg" class="logo text-center"></a>
+        <div class="list topbar-dropdown">
+            <a class="nav-link" href="/register">Register</a>
+        </div>
+    </div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% block content %} {% endblock %}
 
 </body>
+
 </html>

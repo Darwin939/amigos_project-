@@ -1,13 +1,109 @@
-{% extends "header.html" %}
-
-{% block content %}
-
-{% load crispy_forms_tags %}
-
+{% extends "header.html" %} {% block content %} {% load crispy_forms_tags %}
 <h2>Order detail</h2>
-    {{order.date}}
-    {{order.client.nickname}}
-    {{order.client.id}}
-    {{order.weightKG}}
-                          Смотри модель ORDER
+<style type="text/css">
+    .responsive-table li {
+        border-radius: 3px;
+        padding: 25px 30px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    
+    .responsive-table .table-header {
+        background-color: #95a5a6;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+    
+    .responsive-table .table-row {
+        background-color: #fff;
+        box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    }
+    
+    ul {
+        padding: 0;
+    }
+    
+    .col {
+        color: black;
+    }
+    
+    @media all and (max-width: 767px) {
+        .responsive-table .table-header {
+            display: none;
+        }
+        .responsive-table .table-row {
+            background-color: #fff;
+            box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+        }
+        .responsive-table li {
+            display: block;
+        }
+        .responsive-table .col {
+            flex-basis: 100%;
+        }
+        .responsive-table .col {
+            display: flex;
+            padding: 10px 0;
+        }
+        .responsive-table .col:before {
+            color: #6c7a89;
+            padding-right: 10px;
+            content: attr(data-label);
+            flex-basis: 50%;
+        }
+    }
+    
+    .Order-detail {
+        max-width: 767px;
+        margin: 50px auto 20px auto;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+</style>
+<div class="Order-detail">
+    <ul class="responsive-table">
+        <li class="table-header">
+            <div class="col">Date:</div>
+            <div class="col">{{order.date}}</div>
+        </li>
+        <li class="table-row">
+            <div class="col">Username:</div>
+            <div class="col">{{order.client.nickname}}</div>
+        </li>
+        <li class="table-row">
+            <div class="col">User Id:</div>
+            <div class="col">{{order.client.id}}</div>
+        </li>
+        <li class="table-row">
+            <div class="col">Expecting Price:</div>
+            <div class="col">{{order.expectingPriceTenge}} ₸</div>
+        </li>
+        <li class="table-row">
+            <div class="col">Expecting Delivery Date:</div>
+            <div class="col">{{order.expectingDeliveryDate}}</div>
+        </li>
+        <li class="table-row">
+            <div class="col">From:</div>
+            <div class="col">{{order.FromLocation}}</div>
+        </li>
+        <li class="table-row">
+            <div class="col">To:</div>
+            <div class="col">{{order.ToLocation}}</div>
+        </li>
+        <li class="table-row">
+            <div class="col">Is Order Failed:</div>
+            <div class="col">{{order.fail_reason}}</div>
+        </li>
+        <li class="table-row">
+            <div class="col">Is Canceled Canceled:</div>
+            <div class="col">{{order.cancel_reason}}</div>
+        </li>
+    </ul>
+</div>
+<div id="Order-Type">{{order.type}}</div>
+<script>
+</script>
+<!-- Смотри модель ORDER -->
 {% endblock %}

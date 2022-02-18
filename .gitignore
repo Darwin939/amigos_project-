@@ -1,0 +1,9 @@
+amigo/db.sqlite3
+venv
+amigo/__pycache__/urls.cpython-39.pyc
+amigo/__pycache__/wsgi.cpython-39.pyc
+.idea/
+hack_files/events.json
+hack_files/clients.json
+hack_files/deliveryCompanies.json
+hack_files/locations.json

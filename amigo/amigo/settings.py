@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+'crispy_forms',
     'admin_analytics_service.apps.AdminAnalyticsServiceConfig'
 ]
 
@@ -77,10 +78,10 @@ WSGI_APPLICATION = 'amigo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hmnrspcc',
-        'USER': 'hmnrspcc',
-        'PASSWORD': 'gzCrepCNH3ThlHZV0LMSop3Fi0qMIdgo',
-        'HOST': 'tyke.db.elephantsql.com',
+        'NAME': 'wzxemwkh',
+        'USER': 'wzxemwkh',
+        'PASSWORD': 'T8OxWG9W4S3deAfExxvOxTSPWnOYV-oq',
+        'HOST': 'surus.db.elephantsql.com',
         'PORT': '5432',
     }
 }

@@ -10,4 +10,21 @@
     {{order.client.id}}
     {{order.weightKG}}
                           Смотри модель ORDER
+<div class="card-body">
+
+ {% for offer in offers %}
+    <div class="data">
+
+        {{offer.offeredPriceTenge}}
+        {{offer.date}}
+      {{offer.delivery_Company}}
+    </div>
+    {% endfor %}
+
+<form method="post" action="/offer_create">
+        {% csrf_token %}
+      {{offer_create_form.as_p}}
+    <button type="submit" class="btn btn-success">Create Offer</button>
+    </form>
+</div>
 {% endblock %}

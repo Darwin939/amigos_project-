@@ -23,9 +23,20 @@ class Location(models.Model):
     srid = models.CharField(max_length=255)
 
 class Delivery_Company(models.Model):
-    delivery_company_id = models.IntegerField()
-    name = models.CharField(max_length=255)
-    date = models.DateTimeField()
+    delivery_company_id = models.IntegerField(null=True, blank=True)
+    name = models.CharField(max_length=255, null=True, blank=True)
+    date = models.DateTimeField(null=True, blank=True)
+
+    def __str__(self):
+        if self.name:
+            return f'{self.name}'
+        return f'{self.id}'
+
+    def __repr__(self):
+        if self.name:
+            return f'{self.name}'
+        return f'{self.id}'
+
 
 class Order(models.Model):
 
@@ -42,11 +53,11 @@ class Order(models.Model):
 
 class Offer(models.Model):
 
-    delivery_Company = models.ForeignKey(Delivery_Company, on_delete=models.CASCADE)
-    offeredPriceTenge = models.FloatField()
-    date = models.DateTimeField()
-    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='offers')
-    type = models.CharField(max_length=255, choices=OFFER_CHOICES)
+    delivery_Company = models.ForeignKey(Delivery_Company, on_delete=models.CASCADE, null=True, blank=True)
+    offeredPriceTenge = models.FloatField(null=True, blank=True)
+    date = models.DateTimeField(null=True, blank=True)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='offers', null=True, blank=True)
+    type = models.CharField(max_length=255, choices=OFFER_CHOICES, null=True, blank=True)
 
 class UserProfile(models.Model):
     USER_TYPE_CHOICES = (
@@ -56,3 +67,4 @@ class UserProfile(models.Model):
 
     user_type = models.CharField(max_length=255, choices=USER_TYPE_CHOICES)
     user = models.OneToOneField(User, related_name='userprofile', on_delete=models.CASCADE, blank=True, null=True)
+    delivery_company = models.OneToOneField(Delivery_Company, related_name='profile', on_delete=models.CASCADE, blank=True, null=True)

@@ -1,10 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "header.html" %} {% block content %} {% load crispy_forms_tags %}
+<style>
+    .footer {
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    .searchbar-box {
+        max-width: 800px;
+        margin: 125px auto 20px auto;
+        box-shadow: 1px 1px 7px rgb(0 0 0 / 8%);
+        border-radius: 4px;
+    }
+    
+    .searchbar-text {
+        width: 100%;
+        height: 50px;
+        border-radius: 4px 0px 0px 4px;
+        border: none;
+        /* box-shadow: 1px 1px 7px rgb(0 0 0 / 8%); */
+        padding-left: 20px;
+    }
+    
+    .search-input {
+        position: relative;
+        /* display: -webkit-box; */
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-align: stretch;
+        -webkit-align-items: stretch;
+        -moz-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        width: 100%;
+    }
+    
+    .searchButton {
+        width: 30px;
+        height: 50px;
+        border: 1px solid #00B4CC;
+        background: #00B4CC;
+        text-align: center;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        font-size: 20px;
+    }
+    
+    .search-input>.searchbar-text {
+        position: relative;
+        -webkit-box-flex: 1;
+        -webkit-flex: 1 1 auto;
+        -moz-box-flex: 1;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+        margin-bottom: 0;
+    }
+    
+    .product-item-block {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding-top: 10px;
+    }
+    
+    .product-img {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .product-img .product-item-block {
+        max-width: 177px;
+        max-height: 177px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .prImage-img {
+        max-width: 177px;
+        max-height: 177px;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .blocks {
+        box-shadow: 1px 1px 7px rgb(0 0 0 / 8%);
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 4px;
+        height: auto;
+        width: 245px;
+        margin: 5px;
+    }
+    
+    .blocks:hover {
+        box-shadow: 0px 0px 35px 0px rgba(82, 85, 88, 0.35);
+    }
+    
+    .product-list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+</style>
+<div class="footer">
+    <div class="searchbar-box search-input">
+        <input type="search" aria-live="off" role="combobox" class="searchbar-text" placeholder="Введите товар">
+        <button type="submit" class="searchButton">
+        <img src="https://qmarket.qoldau.kz/Theme/ui-packages/project-theme/Images/mp-search.svg">
+        </button>
+    </div>
+</div>
+<div class="product-list">
+    <div class="text-center blocks product-item-block">
+        <div class="product-img">
+            <img src="https://ru.all.biz/img/ru/catalog/1837633.jpg" class="prImage-img">
+        </div>
+        <div class="product-name">Fertigrain Cereal</div>
+        <div class="product-value">
+            <div class="product-price">5000 ₸</div>
+            <div class="product-quantity" 1liter></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

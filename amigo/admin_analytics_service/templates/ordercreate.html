@@ -1,13 +1,57 @@
-{% extends "base.html" %}
-
-{% load crispy_forms_tags %}
-{% block content %}
+{% extends "base.html" %} {% load crispy_forms_tags %} {% block content %}
+<style type="text/css">
+    .card-body {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        width: 700px;
+    }
+    
+    form {
+        background-color: rgba(255, 255, 255, 0.13);
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+        padding: 50px 35px;
+    }
+    
+    label {
+        display: block;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+    input {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.07);
+        border-radius: 3px;
+        padding: 0 10px;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 300;
+    }
+    
+    select {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.07);
+        border-radius: 3px;
+        padding: 0 10px;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 300;
+    }
+</style>
 <div class="card-body">
     <h5>Create Order</h5>
     <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-    <button type="submit" class="btn btn-success">Create</button>
+        {% csrf_token %} {{form.as_p}}
+        <button type="submit" class="btn btn-success">Create</button>
     </form>
 </div>
 {% endblock %}

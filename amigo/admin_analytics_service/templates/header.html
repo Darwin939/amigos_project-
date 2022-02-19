@@ -70,16 +70,11 @@
         }
         
         .nav-link {
-            font-size: large;
+            color: white;
             min-width: 32px;
-            display: block;
             text-align: center;
             margin: 0 0px;
             position: relative;
-        }
-        
-        .topbar-dropdown {
-            display: grid;
         }
         
         a {
@@ -88,16 +83,16 @@
             /* Убираем подчеркивание у ссылок */
         }
         
-        a:visited {
-            color: #e90740;
-            /* Цвет посещённой ссылки */
-        }
-        
         a:hover {
             color: #b80a7e;
             /* Цвет ссылки при наведении на нее курсора мыши */
             text-decoration: underline;
             /* Добавляем подчеркивание */
+        }
+        
+        .right-link {
+            float: right;
+            line-height: 70px;
         }
     </style>
 </head>
@@ -105,9 +100,12 @@
 <body>
     <div class="navbar-custom">
         <a href="https://e-agrin.com/ru/"><img src="https://e-agrin.com/images/logo-white.svg" class="logo text-center"></a>
-        <div class="list topbar-dropdown">
-            <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="/register">Register</a>
+        <div class="list-link list topbar-dropdown">
+            <div class="right-link"> <a class="nav-link" href="/">Home</a></div>
+            <div class="right-link"> <a class="nav-link" href="/register">Register</a> |&nbsp;</div>
+            <div class="right-link"> <a class="nav-link" href="/order-list">Order-list</a> |&nbsp;</div>
+            <div class="right-link"> <a class="nav-link" href="/order-detail/1">Order-detail</a> |&nbsp;</div>
+            <div class="right-link"><a class="nav-link" href="/dashboard">Dashboard</a> |&nbsp;</div>
         </div>
     </div>
     {% if messages %}

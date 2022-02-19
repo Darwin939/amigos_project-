@@ -1,3 +1,8 @@
+from django.contrib.auth.models import User
+from django.core import serializers
+from django.db.models import F
+from django.db.models.functions import ExtractYear
+from django.http import JsonResponse
 from django.shortcuts import  render, redirect
 from django.views.generic import ListView, CreateView, DetailView
 
@@ -137,3 +142,16 @@ def OrderDelete(request, id):
 		pass
 	return redirect('orderlist')
 
+
+def user_data(request):
+	user = User.objects.all().count()
+	logist = User.objects.filter(userprofile__user_type='logist').count()
+	buyer = User.objects.filter(userprofile__user_type='buyer').count()
+
+
+	return JsonResponse({
+		'user_count':user,
+		'logist_count': logist,
+		'buyer': buyer,
+		'percent': buyer/user
+	}, safe=False)

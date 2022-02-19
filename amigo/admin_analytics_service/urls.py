@@ -14,6 +14,6 @@ urlpatterns = [
     path('order-delete/<int:id>', views.OrderDelete, name='orderdelete'),
     path('order-detail/<int:pk>', views.OrderDetail.as_view(), name='orderdetail'),
     path('offer_create', views.OfferCreate.as_view(), name='offercreate'),
-
+    path('user_data/', views.user_data),
 
 ]

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 'crispy_forms',
-    'admin_analytics_service.apps.AdminAnalyticsServiceConfig'
+    'admin_analytics_service.apps.AdminAnalyticsServiceConfig',
+    'home',
+
 ]
 
 MIDDLEWARE = [
@@ -70,7 +72,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'amigo.wsgi.application'
+STATIC_ROOT = os.path.join(BASE_DIR, 'amigo/static')
+STATIC_URL = '/static/'
 
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases

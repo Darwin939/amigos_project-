@@ -104,23 +104,126 @@
         </li>
     </ul>
 </div>
-<div id="Order-Type">{{order.type}}</div>
-<script>
-</script>
-
-{% for offer in offers %}
+<style>
+    h1,
+    h2,
+    h3,
+    h4 {
+        margin: 0;
+        padding: 0;
+        color: black;
+    }
+    
+    .hole-offer {
+        box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 747px;
+        margin-bottom: 50px;
+    }
+    
+    .data {
+        margin-top: 3px;
+        box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+        background-color: white;
+        position: relative;
+    }
+    
+    .data_text {
+        display: grid;
+        margin-left: 10px;
+    }
+    
+    h3 {
+        color: #2d3033;
+    }
+    
+    h4 {
+        color: #393e42;
+    }
+</style>
+<div class="hole-offer">
+    <div class="data">
+        <div class="data_text">
+            <h1>Offers</h1>
+        </div>
+    </div>
+    {% for offer in offers %}
     <div class="data">
 
-        {{offer.offeredPriceTenge}}
-        {{offer.date}}
-      {{offer.delivery_Company}}
+        <div class="data_text">
+            <h2>{{offer.delivery_Company}}</h2>
+        </div>
+        <div class="data_text">
+            <h3>{{offer.offeredPriceTenge}}</h3>
+        </div>
+        <div class="data_text">
+            <h4>{{offer.date}}</h4>
+        </div>
     </div>
     {% endfor %}
-
+</div>
+<style>
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+        position: static;
+        max-width: 747px;
+    }
+    
+    form {
+        background-color: rgba(255, 255, 255, 0.13);
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+        padding: 50px 35px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 747px;
+    }
+    
+    input {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.07);
+        border-radius: 3px;
+        padding: 0 10px;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 300;
+    }
+    
+     ::placeholder {
+        color: #e5e5e5;
+    }
+    
+    button {
+        margin-top: 50px;
+        width: 100%;
+        max-width: 747px;
+        background-color: #ffffff;
+        color: #080710;
+        padding: 15px 0;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    label {
+        display: block;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+</style>
 <form method="post" action="/offer_create">
-        {% csrf_token %}
-      {{offer_create_form.as_p}}
-    <button type="submit" class="btn btn-success">Create Offer</button>
-    </form>
+    <h1>Create Offer</h1>
+    <div class="container"> {% csrf_token %} {{offer_create_form.as_p}}
+        <button type="submit" class="btn btn-success">Create Offer</button>
+    </div>
+</form>
 
 {% endblock %}

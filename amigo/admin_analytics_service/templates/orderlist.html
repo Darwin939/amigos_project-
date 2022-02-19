@@ -1,5 +1,4 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div class="card-body">
     <h4>Order List</h4>
     <table class="table">
@@ -19,7 +18,10 @@
             {% for order in object_list %}
             <tr>
                 <td>{{ order.client.name }}</td>
-                <td>{{order.weightKG}}</td>
+
+                <td>
+                    <a href="/order-detail/{{order.id}}">{{order.weightKG}}</a></td>
+
                 <td>{{order.expectingPriceTenge}}</td>
                 <td>{{order.expectingDeliveryDate}}</td>
                 <td>{{order.date}}</td>
